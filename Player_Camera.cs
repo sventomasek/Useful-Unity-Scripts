@@ -52,7 +52,7 @@ public class Player_Camera : MonoBehaviour
         {
             // Controller Input
             posX = Mathf.SmoothDamp(transform.position.x, target.position.x + fixedOffset.x + joystickOffset.x, ref velocity.x, smoothness.x);
-            posY = Mathf.SmoothDamp(transform.position.y, target.position.y + fixedOffset.y + (joystickOffset.y * 0.55f), ref velocity.y, smoothness.y);
+            posY = Mathf.SmoothDamp(transform.position.y, target.position.y + fixedOffset.y + (joystickOffset.y * 0.55f), ref velocity.y, smoothness.y); // Multiplying joystickOffset by 0.55 will make the Y offset on Mouse and Controller the same on 16:9 Aspect Ratio
         }
 
         // Apply the new position

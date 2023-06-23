@@ -42,6 +42,7 @@ public class Player_Camera : MonoBehaviour
 
     void FixedUpdate()
     {
+        // * Multiplying by 0.1363 will give roughly the same amount of Offset to both Mouse and Controller Input on 16:9 Aspect Ratio
         Vector2 myPosition = Vector2.Lerp(target.position + fixedOffset, mousePosition, mouseMoveAmount * 0.1363f);
 
         float posX = 0;
@@ -63,6 +64,7 @@ public class Player_Camera : MonoBehaviour
             // Controller Input
             posX = Mathf.SmoothDamp(transform.position.x, target.position.x + fixedOffset.x + joystickOffset.x, ref velocity.x, smoothness.x);
             posY = Mathf.SmoothDamp(transform.position.y, target.position.y + fixedOffset.y + (joystickOffset.y * 0.55f), ref velocity.y, smoothness.y);
+            // * Multiplying joystickOffset by 0.55 will make the Y offset on Mouse and Controller the same on 16:9 Aspect Ratio
         }
 
         // Apply the new position
